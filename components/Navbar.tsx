@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, MessageSquare, Feather, Menu, X } from 'lucide-react';
+import { BookOpen, Feather, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
@@ -12,11 +12,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
   const navItems = [
     { id: 'home', label: 'Ana Sayfa', icon: Feather },
     { id: 'blog', label: 'Makaleler', icon: BookOpen },
-    { id: 'chat', label: 'Filozofla Konuş', icon: MessageSquare },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-paper/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+    <nav className="sticky top-0 w-full z-50 bg-transparent transition-all duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
@@ -38,8 +37,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                   activeTab === item.id
-                    ? 'text-amber-800 bg-stone-100'
-                    : 'text-stone-600 hover:text-amber-700 hover:bg-stone-50'
+                    ? 'text-amber-800 bg-stone-100/50'
+                    : 'text-stone-600 hover:text-amber-700 hover:bg-stone-50/50'
                 }`}
               >
                 <item.icon className="w-4 h-4" />
@@ -62,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
 
       {/* Mobile Menu Panel */}
       {isOpen && (
-        <div className="md:hidden bg-paper border-b border-stone-200 absolute w-full">
+        <div className="md:hidden bg-paper border-b border-stone-200 absolute w-full shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <button

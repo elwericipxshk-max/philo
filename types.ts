@@ -1,3 +1,10 @@
+export interface Comment {
+  id: string;
+  author: string;
+  content: string;
+  date: string;
+}
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -8,6 +15,7 @@ export interface BlogPost {
   tags: string[];
   imageUrl: string;
   readTime: string;
+  comments: Comment[];
 }
 
 export interface ChatMessage {

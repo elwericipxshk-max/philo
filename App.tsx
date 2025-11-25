@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { BlogFeed } from './components/BlogFeed';
 import { BlogPostDetail } from './components/BlogPostDetail';
-import { PhilosopherChat } from './components/PhilosopherChat';
 import { BlogPost } from './types';
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
             <div className="bg-stone-50 py-12 px-4 text-center">
                 <p className="text-xl font-serif text-stone-600 italic">"Bilgi, şüpheyle başlar."</p>
             </div>
-            <BlogFeed onReadPost={handleReadPost} />
+            <BlogFeed onReadPost={handleReadPost} limit={3} />
           </>
         );
       case 'blog':
@@ -36,8 +35,6 @@ function App() {
         ) : (
           <BlogFeed onReadPost={handleReadPost} />
         );
-      case 'chat':
-        return <PhilosopherChat />;
       default:
         return <Hero onStartReading={() => setActiveTab('blog')} />;
     }
@@ -63,7 +60,6 @@ function App() {
                 <ul className="space-y-2 text-sm">
                     <li><button onClick={() => setActiveTab('home')} className="hover:text-amber-500 transition-colors">Ana Sayfa</button></li>
                     <li><button onClick={() => setActiveTab('blog')} className="hover:text-amber-500 transition-colors">Okuma Listesi</button></li>
-                    <li><button onClick={() => setActiveTab('chat')} className="hover:text-amber-500 transition-colors">Yapay Zeka Filozof</button></li>
                 </ul>
             </div>
             <div>
